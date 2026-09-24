@@ -1,0 +1,13 @@
+# Python virtual environment
+venv/
+
+# Local generated project data
+gru_index/
+
+# Local secrets
+.env
+.env.*
+
+# Python cache
+__pycache__/
+*.pyc
