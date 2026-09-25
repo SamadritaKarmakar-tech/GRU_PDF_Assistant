@@ -7,9 +7,7 @@ from langchain_google_genai import (
 import os
 from dotenv import load_dotenv
 
-# =========================
 # Load API key
-# =========================
 load_dotenv()
 
 api_key = os.getenv("GOOGLE_API_KEY")
@@ -19,9 +17,7 @@ if not api_key:
     st.stop()
 
 
-# =========================
 # Load embeddings + FAISS
-# =========================
 embeddings = GoogleGenerativeAIEmbeddings(
     model="gemini-embedding-001",
     google_api_key=api_key
@@ -34,9 +30,8 @@ vectorstore = FAISS.load_local(
 )
 
 
-# =========================
+
 # Gemini LLM
-# =========================
 llm = ChatGoogleGenerativeAI(
     model="gemini-2.5-flash-lite",
     google_api_key=api_key,
@@ -44,9 +39,7 @@ llm = ChatGoogleGenerativeAI(
 )
 
 
-# =========================
 # Streamlit UI
-# =========================
 st.title("GRU PDF Assistant")
 
 query = st.text_input("Ask a question about GRU:")
